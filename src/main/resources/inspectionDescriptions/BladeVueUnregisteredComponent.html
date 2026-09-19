@@ -1,0 +1,26 @@
+<html>
+<body>
+Reports tags in Blade views that look like Vue components (a hyphenated or PascalCase name that isn't an HTML, SVG
+or MathML element) but aren't registered in any Vue app.
+<p>
+Registrations are read from <code>app.component(...)</code>, <code>Vue.component(...)</code> and
+<code>components: {}</code> on <code>createApp(...)</code> or <code>new Vue(...)</code> in the project's JavaScript and
+TypeScript files. <code>&lt;x-...&gt;</code>, <code>livewire:</code> and <code>flux:</code> tags are never reported.
+</p>
+<p>
+To avoid false positives, nothing is reported:
+</p>
+<ul>
+    <li>in projects without any component registrations;</li>
+    <li>when components are also registered in a way that can't be read, such as a loop over a library's exports
+        (unless enabled below);</li>
+    <li>for tags without a same-named <code>.vue</code> file, when Vue plugins that may register components are
+        installed with <code>.use()</code> (unless enabled below);</li>
+    <li>in views under the excluded paths, by default <code>resources/views/vendor/**</code>.</li>
+</ul>
+<!-- tooltip end -->
+<p>
+Use the quick-fix or the ignored tags option for tags provided by a component library, e.g. <code>^b-</code>.
+</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Gradle, Kotlin and IntelliJ Platform Gradle Plugin output
+/.gradle/
+/.intellijPlatform/
+/.kotlin/
+/build/
+
+# IDE project settings
+/.idea/
+
+.DS_Store

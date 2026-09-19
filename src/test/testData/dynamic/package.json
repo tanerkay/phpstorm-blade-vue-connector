@@ -1,0 +1,8 @@
+{
+    "name": "dynamic",
+    "private": true,
+    "dependencies": {
+        "bootstrap-vue-next": "^0.30.0",
+        "vue": "^3.5.0"
+    }
+}

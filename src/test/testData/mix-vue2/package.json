@@ -1,0 +1,10 @@
+{
+    "name": "mix-vue2",
+    "private": true,
+    "dependencies": {
+        "portal-vue": "^2.1.7",
+        "vue": "^2.7.16",
+        "vue-flatpickr-component": "^8.1.0",
+        "vue-moment": "^4.1.0"
+    }
+}

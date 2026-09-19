@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>blade-vue-connector</id>
+    <name>Blade Vue Connector</name>
+    <vendor url="https://github.com/tanerkay">tanerkay</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.xml</depends>
+    <depends>com.jetbrains.php.blade</depends>
+    <depends>JavaScript</depends>
+    <!-- No code references: .vue files need their file type for Find Usages, and .ts imports of .vue files resolve through it. -->
+    <depends>org.jetbrains.plugins.vue</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <gotoDeclarationHandler implementation="bladevueconnector.navigation.BladeVueGotoDeclarationHandler"/>
+        <psi.referenceContributor language="BladeHTML"
+                                  implementation="bladevueconnector.navigation.BladeVueReferenceContributor"/>
+
+        <annotator language="BladeHTML" implementationClass="bladevueconnector.highlighting.BladeVueTagAnnotator"/>
+        <colorSettingsPage implementation="bladevueconnector.highlighting.BladeVueColorSettingsPage"/>
+
+        <lang.inspectionSuppressor language="Blade"
+                                   implementationClass="bladevueconnector.inspections.BladeVueUnknownTagSuppressor"/>
+        <localInspection language="BladeHTML"
+                         shortName="BladeVueUnregisteredComponent"
+                         bundle="messages.BladeVueBundle"
+                         key="inspection.unregistered.display.name"
+                         groupBundle="messages.BladeVueBundle"
+                         groupKey="inspection.group.name"
+                         enabledByDefault="true"
+                         level="WARNING"
+                         implementationClass="bladevueconnector.inspections.BladeVueUnregisteredComponentInspection"/>
+
+        <fileBasedIndex implementation="bladevueconnector.search.BladeVueTagIndex"/>
+        <referencesSearch implementation="bladevueconnector.search.BladeVueReferencesSearcher"/>
+    </extensions>
+</idea-plugin>
